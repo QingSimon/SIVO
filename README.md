@@ -4,7 +4,30 @@ SIVO is a novel feature selection method for visual SLAM which facilitates long-
 
 Our method selects features which provide the highest reduction in Shannon entropy between the entropy of the current state, and the joint entropy of the state given the addition of a new feature with the classification entropy of the feature from the Bayesian NN. This strategy generates a sparse map suitable for long-term localization, as each selected feature significantly reduces the uncertainty of the vehicle state and has been detected to be a static object (building, traffic sign, etc.) repeatedly with a high confidence.
 
-This work has been submitted to ICRA 2019.
+The paper can be found [here](https://arxiv.org/pdf/1811.11946.pdf). If you use this code, please cite the paper:
+
+```
+@article{ganti2018visual,
+	title={Visual SLAM with Network Uncertainty Informed Feature Selection},
+	author={Ganti, Pranav and Waslander, Steven L.},
+	journal={arXiv preprint arXiv:1811.11946},
+	year={2018}
+}
+```
+
+If you'd like to deep dive further into the theory, background, or methodology, please refer to my [thesis](https://uwspace.uwaterloo.ca/handle/10012/14111). If you use refer to this document in your work, please cite it:
+
+```
+@mastersthesis{ganti2018SIVO,
+author={{Ganti, Pranav}},
+title={SIVO: Semantically Informed Visual Odometry and Mapping},
+year={2018},
+publisher="UWSpace",
+url={http://hdl.handle.net/10012/14111}
+}
+
+```
+
 
 This method builds on the work of Bayesian SegNet and ORB\_SLAM2. Detailed background information can be found [below](#background-and-related-publications).
 
@@ -14,7 +37,7 @@ This method builds on the work of Bayesian SegNet and ORB\_SLAM2. Detailed backg
 
 This implementation has been tested with **Ubuntu 16.04**.
 
-A powerful CPU (e.g. Intel i7), and a powerful GPU (e.g. NVIDIA TitanX) are required to ensure real-time performance and provide more stable and accurate results.
+A powerful CPU (e.g. Intel i7), and a powerful GPU (e.g. NVIDIA TitanX) are required to provide more stable and accurate results. Due to the technique of approximating a Bayesian Neural Network by passing an image through the network several times, this network does not quite run in real time.
 
 ### C++11 Compiler
 The thread and chrono functionalities of C++11 are required
